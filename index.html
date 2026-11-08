@@ -1056,7 +1056,7 @@
         <div class="step-badge" id="badgeStep3"><span class="circle">3</span> Message</div>
       </div>
 
-      <form id="contactForm" onsubmit="submitContactForm(event)">
+      <form id="contactForm" action="https://formspree.io/f/meaqyldz" method="POST" onsubmit="submitContactForm(event)">
         <!-- Step 1 -->
         <div class="form-step active" id="formStep1">
           <p class="form-prompt">What brings you here?</p>
@@ -1075,8 +1075,8 @@
         <!-- Step 2 -->
         <div class="form-step" id="formStep2">
           <p class="form-prompt">Where can I reach you?</p>
-          <input type="text" id="contactName" class="form-input" placeholder="Your Name" required>
-          <input type="email" id="contactEmail" class="form-input" placeholder="Your Email" required>
+          <input type="text" id="contactName" name="name" class="form-input" placeholder="Your Name" required>
+          <input type="email" id="contactEmail" name="email" class="form-input" placeholder="Your Email" required>
           <div class="form-buttons">
             <button type="button" class="btn-form prev" onclick="setFormStep(1)">Previous</button>
             <button type="button" class="btn-form" onclick="setFormStep(3)">Next</button>
@@ -1086,16 +1086,16 @@
         <!-- Step 3 -->
         <div class="form-step" id="formStep3">
           <p class="form-prompt">What would you like to discuss?</p>
-          <textarea id="contactMessage" class="form-textarea" rows="4" placeholder="Your Message" required></textarea>
+          <textarea id="contactMessage" name="message" class="form-textarea" rows="4" placeholder="Your Message" required></textarea>
           <div class="form-buttons">
             <button type="button" class="btn-form prev" onclick="setFormStep(2)">Previous</button>
-            <button type="submit" class="btn-form">Send</button>
+            <button type="submit" id="contactSubmitBtn" class="btn-form">Send</button>
           </div>
+          <p id="form-status" style="margin-top: 15px; font-weight: bold; text-align: center;"></p>
         </div>
       </form>
     </div>
   </div>
-
   <!-- ================= SITE DATA & SCRIPTS (ALL LOCAL /static/ PATHS) ================= -->
   <script>
     // 1. Bio 5-Photo Strip
