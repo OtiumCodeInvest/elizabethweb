@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual artist – Elizabeth Norden Guldbrandsen</title>
+  <link rel="icon" href="/static/Egart.dkhvid-100x100.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/static/Egart.dkhvid-300x300.png">
+  
+  <!-- Google Fonts: Roboto, Lato, Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-top: #F2F2F2;
+      --bg-bottom: #1F1E1E;
+      --text-dark: #000000;
+      --text-light: #FFFFFF;
+      --text-muted: #939393;
+      --accent-purple: #DC6DFF;
+      --sold-red: #FF4F4F;
+      --btn-dark: #424242;
+      --footer-bg: #282828;
+      --max-width: 1350px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ================= HEADER ================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 95;
+      background-color: var(--bg-top);
+      min-height: 80px;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .header-logo img {
+      max-height: 55px;
+      width: auto;
+    }
+
+    .header-nav-group {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 28px;
+      flex: 1;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .icon-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .icon-link:hover {
+      color: var(--accent-purple);
+      transform: scale(1.1);
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .main-nav a,
+    .header-contact-btn {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 10px;
+      color: var(--text-dark);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .main-nav a:hover,
+    .header-contact-btn:hover {
+      background-color: var(--btn-dark);
+      color: var(--accent-purple);
+    }
+
+    /* ================= HERO ================= */
+    #Home {
+      width: 100%;
+    }
+
+    .hero-container {
+      margin-top: -50px;
+      padding: 40px;
+    }
+
+    .hero-container img {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    /* ================= BIO SECTION ================= */
+    #Bio {
+      padding: 60px 5% 40px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .bio-top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-bottom: 50px;
+    }
+
+    .bio-portrait-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .bio-portrait-wrap img {
+      width: 60%;
+    }
+
+    .bio-intro-wrap {
+      padding-top: 80px;
+    }
+
+    .bio-greeting-img {
+      width: 75%;
+      margin-left: -25px;
+      margin-bottom: 20px;
+    }
+
+    .bio-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5em;
+      color: var(--text-dark);
+      padding-right: 25%;
+      margin-bottom: 25px;
+    }
+
+    .bio-text p + p {
+      margin-top: 16px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--btn-dark);
+      color: var(--text-light);
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 1px solid #000000;
+      padding: 15px 20px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--text-light);
+      color: var(--text-dark);
+    }
+
+    /* CV & Bio 5-Photo Strip */
+    .bio-cv-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .cv-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5em;
+      color: var(--text-dark);
+      padding-left: 10%;
+    }
+
+    .cv-text h5 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    .cv-text h5:first-child {
+      margin-top: 0;
+    }
+
+    .cv-text p {
+      margin-bottom: 6px;
+    }
+
+    .bio-strip-gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      padding-right: 30px;
+    }
+
+    .bio-strip-item {
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .bio-strip-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .bio-strip-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.4s ease;
+    }
+
+    .bio-strip-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .bio-strip-item:hover::after {
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    /* ================= PORTFOLIO SECTION ================= */
+    #Portfolio {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 55px 20px 60px;
+    }
+
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-title-img {
+      width: 30%;
+      margin: 20px auto 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      line-height: 20px;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    /* Selected Works Carousel */
+    .selected-carousel-wrap {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .selected-carousel-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 40px) / 5);
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+
+    .selected-carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .selected-slide {
+      height: 250px;
+      scroll-snap-align: start;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .selected-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .selected-slide:hover img {
+      transform: scale(1.04);
+    }
+
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      transition: background 0.2s;
+    }
+
+    .carousel-nav-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-nav-btn.prev { left: 8px; }
+    .carousel-nav-btn.next { right: 8px; }
+
+    .carousel-nav-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .click-enlarge-note {
+      margin-top: 20px;
+      margin-bottom: 35px;
+    }
+
+    /* Main 3-Column Artwork Grid */
+    .artwork-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px 24px;
+      align-items: start;
+    }
+
+    .artwork-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .artwork-media {
+      width: 100%;
+      margin-bottom: 6px;
+    }
+
+    .artwork-img-link {
+      display: block;
+      cursor: pointer;
+    }
+
+    .artwork-img-link img {
+      transition: opacity 0.25s ease;
+    }
+
+    .artwork-img-link:hover img {
+      opacity: 0.9;
+    }
+
+    /* Sub-galleries above video/image inside a card */
+    .card-subgallery {
+      display: grid;
+      gap: 11px;
+      margin-bottom: 12px;
+      width: 100%;
+    }
+
+    .card-subgallery.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-subgallery.cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-subgallery-item {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card-subgallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card-subgallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Card Internal Image Slider */
+    .card-slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .card-slider-track {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+
+    .card-slider-slide {
+      min-width: 100%;
+      cursor: pointer;
+    }
+
+    .card-slider-slide img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Video Wrapper */
+    .video-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Artwork Typography */
+    .artwork-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 24px;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .artwork-meta {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--text-light);
+    }
+
+    .artwork-sold {
+      font-family: 'Roboto', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--sold-red);
+      margin-top: 2px;
+    }
+
+    /* ================= OTHER ART WORKS (MASONRY) ================= */
+    .other-works-section {
+      margin-top: 70px;
+    }
+
+    .other-works-title {
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-light);
+      margin-bottom: 25px;
+    }
+
+    .masonry-gallery {
+      column-count: 4;
+      column-gap: 10px;
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .masonry-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .masonry-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.4s ease;
+    }
+
+    .masonry-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .masonry-item:hover::after {
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    /* ================= FOOTER ================= */
+    .site-footer {
+      background-color: var(--footer-bg);
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+      padding: 15px 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      min-height: 70px;
+    }
+
+    .footer-col.middle {
+      border-left: 1px solid #000;
+      border-right: 1px solid #000;
+    }
+
+    .footer-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #787878;
+    }
+
+    .footer-value {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-light);
+    }
+
+    .footer-value:hover {
+      color: var(--accent-purple);
+    }
+
+    .footer-social-link {
+      color: var(--text-light);
+      display: inline-flex;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .footer-social-link:hover {
+      color: #ACA298;
+    }
+
+    /* ================= LIGHTBOX MODAL ================= */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 36px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .lightbox-nav.prev { left: 20px; }
+    .lightbox-nav.next { right: 20px; }
+
+    /* ================= CONTACT POPUP MODAL ================= */
+    .contact-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .contact-modal-overlay.active {
+      display: flex;
+    }
+
+    .contact-modal {
+      background: var(--bg-top);
+      width: 100%;
+      max-width: 540px;
+      padding: 45px 40px;
+      position: relative;
+      box-shadow: 2px 8px 23px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .contact-header-img {
+      width: 68%;
+      margin-bottom: 25px;
+    }
+
+    /* Step Indicators */
+    .form-steps-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      gap: 10px;
+    }
+
+    .step-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #777;
+    }
+
+    .step-badge .circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #000;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .step-badge.active {
+      color: #000;
+    }
+
+    .step-badge.active .circle {
+      background: var(--accent-purple);
+      color: #fff;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .form-prompt {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .checkbox-list label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 15px;
+      border: 1px solid #000;
+      background: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      color: #000;
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-form {
+      flex: 1;
+      padding: 18px 20px;
+      border: none;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      background: #000;
+      color: #fff;
+      transition: background 0.2s;
+    }
+
+    .btn-form.prev {
+      background: var(--accent-purple);
+    }
+
+    .btn-form:hover {
+      background: var(--accent-purple);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .bio-portrait-wrap img { width: 100%; }
+      .bio-text { padding-right: 0; font-size: 14px; }
+      .cv-text { padding-left: 5%; font-size: 14px; }
+      .portfolio-title-img { width: 41%; }
+      .selected-carousel-track {
+        grid-auto-columns: calc((100% - 30px) / 4);
+      }
+      .selected-slide { height: 140px; }
+      .masonry-gallery { column-count: 3; }
+    }
+
+    @media (max-width: 767px) {
+      .site-header {
+        padding: 10px 4%;
+        flex-wrap: wrap;
+      }
+      .header-logo img { height: 30px; }
+      .header-nav-group { gap: 12px; }
+      .main-nav a, .header-contact-btn {
+        font-size: 12px;
+        padding: 4px 6px;
+      }
+      .hero-container {
+        margin-top: 0;
+        padding: 0;
+      }
+      .bio-top-grid,
+      .bio-cv-row {
+        grid-template-columns: 1fr;
+      }
+      .bio-portrait-wrap img { width: 55%; }
+      .bio-intro-wrap { padding-top: 10px; text-align: center; }
+      .bio-greeting-img { width: 70%; margin: 0 auto 15px; }
+      .bio-text { text-align: left; }
+      .cv-text { padding-left: 0; }
+      .bio-strip-gallery {
+        padding-right: 0;
+        gap: 6px;
+      }
+      .portfolio-title-img { width: 63%; }
+      .selected-carousel-track {
+        grid-auto-columns: calc((100% - 20px) / 3);
+      }
+      .selected-slide { height: 100px; }
+      .artwork-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .artwork-card img {
+        width: 100% !important;
+      }
+      .masonry-gallery { column-count: 2; }
+      .site-footer {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .footer-col.middle {
+        border: none;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <a href="#Home" class="header-logo">
+      <img src="/static/Elizabeth-Norden-Guldbrandsen-vertikal-1024x71.png" alt="Elizabeth Norden Guldbrandsen">
+    </a>
+    <div class="header-nav-group">
+      <a href="https://www.instagram.com/guldbrandsen_art/" target="_blank" rel="noopener" class="icon-link" aria-label="Instagram">
+        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+      <nav class="main-nav" aria-label="Menu">
+        <ul>
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#Bio">Bio</a></li>
+          <li><a href="#Portfolio">Portfolio</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="header-contact-btn" onclick="openContactModal()">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section id="Home">
+      <div class="hero-container">
+        <img src="/static/FrontPage9-1-scaled.png" alt="Elizabeth Norden Guldbrandsen Featured Art" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- ================= BIO ================= -->
+    <section id="Bio">
+      <div class="bio-top-grid">
+        <div class="bio-portrait-wrap">
+          <img src="/static/DSC040691-632x1024.jpg" alt="Elizabeth Norden Guldbrandsen Portrait" loading="lazy">
+        </div>
+        <div class="bio-intro-wrap">
+          <img class="bio-greeting-img" src="/static/Hi-im-ELizabeth-1024x160.png" alt="Hi, I'm Elizabeth" loading="lazy">
+          <div class="bio-text">
+            <p>I am a bachelor student at the Royal Danish Academy of Fine Arts in Copenhagen, specializing in oil painting and sculptural practice.</p>
+            <p>I am fascinated by magical realism and the distorted side of our reality — the absurd and what lies beneath the surface. In my works, I explore the human psyche, body, and flesh through a grotesque and corporeal expression, which becomes a physical manifestation of something that is happening inside. Often with a feminist, taboo-breaking, or critical undertone.</p>
+            <p>If you want to know more about my work or are curious about pricing, I would love to hear from you.</p>
+          </div>
+          <button type="button" class="btn-primary" onclick="openContactModal()">Contact</button>
+        </div>
+      </div>
+
+      <div class="bio-cv-row">
+        <div class="cv-text">
+          <h5>Education</h5>
+          <p>2026 Accademia di Brera, Milan, Italy (February-July)</p>
+          <p>2024 Enrolled at BFA at the Royal Danish Academy of Fine Arts, Copenhagen, Denmark</p>
+          <p>2023 Holbæk Kunsthøjskole</p>
+          <p>2020-2023 Aurehøj Gymnasium</p>
+
+          <h5>Exhibitions and projects</h5>
+          <p>2026 Legnano Castle Exhibition (group exhibition), Milan</p>
+          <p>2026 Student exhibition at Accademia di Brera (group exhibition), Milan</p>
+          <p>2025 RMC Afgangsfestival, solo art exhibition at live concert with Aske Egelund Bechmann, Copenhagen</p>
+          <p>2025 Rundgang 2025 (group exhibition), The Royal Danish Academy of Fine Arts, Copenhagen</p>
+          <p>2025 Crucifixion of Jesus by Noah Umur Kanber – assisting with croquis and performance, Copenhagen</p>
+          <p>2024 Førsteårsudstilling (group exhibition), Gallery Q, Copenhagen</p>
+          <p>2024 3A Atelier Art Lounge (group exhibition), Amager</p>
+          <p>2023 Toner i metal, solo exhibition and performance, Gentofte Hovedbibliotek, Gentofte</p>
+          <p>2022 Toner i metal, solo performance, Aurehøj Gymnasium, Gentofte</p>
+          <p>2020 Tinnitus og øreringe, contribution to Ung Kunst Antologi (art book) by Vilma Krage, Nordvest</p>
+
+          <h5>Awards and grants</h5>
+          <p>2022 Award from the Italian Cultural Institute in Copenhagen for the painting <em>Fugl</em></p>
+          <p>2021-2022 Grant (dream scholarship) from the Danish Arts Foundation for the project <em>Toner i metal</em></p>
+        </div>
+
+        <div class="bio-strip-gallery" id="bioStripGallery"></div>
+      </div>
+    </section>
+
+    <!-- ================= PORTFOLIO ================= -->
+    <section id="Portfolio">
+      <div class="portfolio-header">
+        <img class="portfolio-title-img" src="/static/Portfoliohvid-scaled.png" alt="Portfolio" loading="lazy">
+        <p class="section-subtitle">Selected works</p>
+      </div>
+
+      <!-- Selected Works Top Carousel -->
+      <div class="selected-carousel-wrap">
+        <button class="carousel-nav-btn prev" onclick="scrollSelected(-1)" aria-label="Previous">
+          <svg viewBox="0 0 1000 1000"><path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"/></svg>
+        </button>
+        <div class="selected-carousel-track" id="selectedCarouselTrack"></div>
+        <button class="carousel-nav-btn next" onclick="scrollSelected(1)" aria-label="Next">
+          <svg viewBox="0 0 1000 1000"><path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"/></svg>
+        </button>
+      </div>
+
+      <p class="section-subtitle click-enlarge-note">Click on the pictures to enlarge</p>
+
+      <!-- Main 3-Column Portfolio Grid -->
+      <div class="artwork-grid" id="artworkGrid"></div>
+
+      <!-- Other Art Works Masonry -->
+      <div class="other-works-section">
+        <p class="other-works-title">Other art works</p>
+        <div class="masonry-gallery" id="otherWorksGallery"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-col">
+      <span class="footer-label">LOCATION</span>
+      <span class="footer-value">Copenhagen, Denmark</span>
+    </div>
+    <div class="footer-col middle">
+      <span class="footer-label">CONTACT</span>
+      <a href="mailto:Elizabeth.guldbrandsen@gmail.com" class="footer-value">Contact via Email</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-label">INSTAGRAM</span>
+      <a href="https://www.instagram.com/guldbrandsen_art/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
+        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ================= LIGHTBOX ================= -->
+  <div class="lightbox-overlay" id="lightbox" onclick="if(event.target===this) closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lightbox-nav prev" onclick="stepLightbox(-1)" aria-label="Previous">&#10094;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav next" onclick="stepLightbox(1)" aria-label="Next">&#10095;</button>
+  </div>
+
+  <!-- ================= CONTACT POPUP ================= -->
+  <div class="contact-modal-overlay" id="contactModal" onclick="if(event.target===this) closeContactModal()">
+    <div class="contact-modal">
+      <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+      <img class="contact-header-img" src="/static/Get-In-Touch-scaled.png" alt="Get In Touch">
+      
+      <div class="form-steps-indicator">
+        <div class="step-badge active" id="badgeStep1"><span class="circle">1</span> Select Topic</div>
+        <div class="step-badge" id="badgeStep2"><span class="circle">2</span> About You</div>
+        <div class="step-badge" id="badgeStep3"><span class="circle">3</span> Message</div>
+      </div>
+
+      <form id="contactForm" onsubmit="submitContactForm(event)">
+        <!-- Step 1 -->
+        <div class="form-step active" id="formStep1">
+          <p class="form-prompt">What brings you here?</p>
+          <div class="checkbox-list">
+            <label><input type="checkbox" name="topic" value="Available artworks / Prices"> Available artworks / Prices</label>
+            <label><input type="checkbox" name="topic" value="Commissions"> Commissions</label>
+            <label><input type="checkbox" name="topic" value="Exhibitions / Collaborations"> Exhibitions / Collaborations</label>
+            <label><input type="checkbox" name="topic" value="I just wanted to say hello :)"> I just wanted to say hello :)</label>
+            <label><input type="checkbox" name="topic" value="Other"> Other</label>
+          </div>
+          <div class="form-buttons">
+            <button type="button" class="btn-form" onclick="setFormStep(2)">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step" id="formStep2">
+          <p class="form-prompt">Where can I reach you?</p>
+          <input type="text" id="contactName" class="form-input" placeholder="Your Name" required>
+          <input type="email" id="contactEmail" class="form-input" placeholder="Your Email" required>
+          <div class="form-buttons">
+            <button type="button" class="btn-form prev" onclick="setFormStep(1)">Previous</button>
+            <button type="button" class="btn-form" onclick="setFormStep(3)">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step" id="formStep3">
+          <p class="form-prompt">What would you like to discuss?</p>
+          <textarea id="contactMessage" class="form-textarea" rows="4" placeholder="Your Message" required></textarea>
+          <div class="form-buttons">
+            <button type="button" class="btn-form prev" onclick="setFormStep(2)">Previous</button>
+            <button type="submit" class="btn-form">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= SITE DATA & SCRIPTS (ALL LOCAL /static/ PATHS) ================= -->
+  <script>
+    // 1. Bio 5-Photo Strip
+    const bioStripImages = [
+      { thumb: "/static/Screenshot_20251019_000320_Instagram-300x294.jpg", full: "/static/Screenshot_20251019_000320_Instagram.jpg" },
+      { thumb: "/static/ff8a466b-8a2c-433e-9103-b5d7c9a11add-300x263.jpg", full: "/static/ff8a466b-8a2c-433e-9103-b5d7c9a11add.jpg" },
+      { thumb: "/static/16d059ee-8601-41d4-accc-603149140705-225x300.jpg", full: "/static/16d059ee-8601-41d4-accc-603149140705.jpg" },
+      { thumb: "/static/DSC03484_1-300x201.jpg", full: "/static/DSC03484_1.jpg" },
+      { thumb: "/static/received_465720751548220-300x200.jpeg", full: "/static/received_465720751548220.jpeg" }
+    ];
+
+    // 2. Selected Works Top Carousel
+    const selectedWorksImages = [
+      "/static/Tomatsuppe7-scaled.png",
+      "/static/DSF94681-scaled.png",
+      "/static/Entangled1.3-scaled.png",
+      "/static/ISkovensDybeSTilleRo-scaled.png",
+      "/static/20240412_210835-scaled.jpg",
+      "/static/20241029_143711-scaled.jpg",
+      "/static/Spacing-out-scaled.jpg",
+      "/static/Skulptur7-scaled.png",
+      "/static/Apocalypse-scaled.jpg",
+      "/static/20240506_155530-scaled.jpg"
+    ];
+
+    // 3. Main Portfolio Artworks
+    const portfolioArtworks = [
+      {
+        title: "Orange Grænselandskaber (2026)",
+        meta: ["Oil on canvas | 140 x 70 cm"],
+        sold: false,
+        image: "/static/67f69e3c-db13-4f58-8d70-691168835774.jpg"
+      },
+      {
+        title: "Untitled (2026)",
+        meta: ["Oil on canvas | 140 x 70 cm"],
+        sold: false,
+        image: "/static/DSC04961-scaled.png"
+      },
+      {
+        title: "Parlo/Parli (2026)",
+        meta: ["Oil on canvas attached to collage chair | 100 x 150 cm", "In collaboration with Johanna Obermeier"],
+        sold: true,
+        carousel: [
+          { thumb: "/static/StudentExhibition1-scaled-rubn9hmkn9k5k3t8xib9y76kpofzxlofa2u0sjwddw.png", full: "/static/StudentExhibition1-scaled.png" },
+          { thumb: "/static/StudentExhibition2-scaled-rubnatkcbtds07vm5l18zd330bvpu5yqgo3s9nxakk.png", full: "/static/StudentExhibition2-scaled.png" }
+        ]
+      },
+      {
+        title: "Intertwined close-up (2026)",
+        meta: ["Oil on canvas | 50 x 40 cm"],
+        sold: false,
+        image: "/static/842418ff-8119-48ab-b461-9c050859ae7a-1024x838.jpg",
+        full: "/static/842418ff-8119-48ab-b461-9c050859ae7a.jpg"
+      },
+      {
+        title: "Untitled (2026)",
+        meta: ["Oil on canvas | 50 x 40 cm"],
+        sold: true,
+        width: "83%",
+        image: "/static/DSF94681-754x1024.png",
+        full: "/static/DSF94681-scaled.png"
+      },
+      {
+        title: "Autoritratto Calco Del Busto (2026)",
+        meta: ["Gesso, wood and resin | 80 x 50 cm"],
+        sold: true,
+        width: "82%",
+        image: "/static/skulptur-buste6-744x1024.png",
+        full: "/static/skulptur-buste6-scaled.png"
+      },
+      {
+        title: "Study of the body III (2026)",
+        meta: ["Charcoal on paper | A3"],
+        sold: false,
+        carousel: [
+          { thumb: "/static/DSF97551-scaled-rqlauh2bm341vvvusecvdkyolrvidjl5esa2kb6420.png", full: "/static/DSF97551-scaled.png" },
+          { thumb: "/static/DSF97383-scaled-rql9nt61espix1utwygh7cjhy65r047qvmaoe6feh4.png", full: "/static/DSF97383-scaled.png" },
+          { thumb: "/static/KulKrop-scaled-rubngtr7mk0dzl9gwiiz5x7meioezidlgm5uh65i4o.png", full: "/static/KulKrop-scaled.png" }
+        ]
+      },
+      {
+        title: "Anatomia Artistica (2026)",
+        meta: ["Pensel on paper | A3"],
+        sold: false,
+        carousel: [
+          { thumb: "/static/DSF97861-scaled-rqlau9jlun2gzek14ixmef3bn828xm45je55htdtfk.png", full: "/static/DSF97861-scaled.png" },
+          { thumb: "/static/DSF9795-scaled-rqlauxzesbzxd9kj5thx78xb38pshqt6ar3rz0dkxs.png", full: "/static/DSF9795-scaled.png" },
+          { thumb: "/static/DSF9807-scaled-rqlavzkydpfe9o1x29qzyzfqunkh1myfrx7762tu0w.png", full: "/static/DSF9807-scaled.png" },
+          { thumb: "/static/DSF9808-scaled-rqlaw65tpjoeixsczuldyfrz0co1jiok4trlj0k2tc.png", full: "/static/DSF9808-scaled.png" },
+          { thumb: "/static/DSF9790-scaled-rqlav5i4b0a7y59lxwqxr70zuboq7bn0zsbnt82fk0.png", full: "/static/DSF9790-scaled.png" }
+        ]
+      },
+      {
+        title: "Smagen af noget jeg fortrænger (2025)",
+        meta: ["Oil on canvas | 90 x 120 cm"],
+        sold: true,
+        image: "/static/Tomatsuppe7-scaled.png"
+      },
+      {
+        title: "Entangled At The Terminal (2025)",
+        meta: ["Oil, ceramics and string on canvas | 150 x 200 cm"],
+        sold: false,
+        subgalleryCols: 3,
+        subgallery: [
+          { thumb: "/static/Close-up2.5-300x200.png", full: "/static/Close-up2.5-scaled.png" },
+          { thumb: "/static/Close-up2.6-300x200.png", full: "/static/Close-up2.6-scaled.png" },
+          { thumb: "/static/Close-up1.18-300x200.png", full: "/static/Close-up1.18-scaled.png" }
+        ],
+        image: "/static/Entangled1.3-1024x744.png",
+        full: "/static/Entangled1.3-scaled.png"
+      },
+      {
+        title: "Trapped Inside Her Own Gaze (2025)",
+        meta: ["Oil on canvas | 75 x 100 cm"],
+        sold: false,
+        image: "/static/20251126_122311-1024x766.jpg",
+        full: "/static/20251126_122311-scaled.jpg"
+      },
+      {
+        title: "Party I Provinsen (2025)",
+        meta: ["Oil on canvas | 50 x 100 cm"],
+        sold: true,
+        image: "/static/20251029_204358-1024x488.jpg",
+        full: "/static/20251029_204358-scaled.jpg"
+      },
+      {
+        title: "I Skovens Dybe Stille Ro (2025)",
+        meta: ["Oil, oil pastels and spray paint on canvas | 120 x 210 cm"],
+        sold: false,
+        image: "/static/Heksefugl2-scaled.png"
+      },
+      {
+        title: "Untitled (2025)",
+        meta: ["Copperplate etching on paper | 29 x 42 cm"],
+        sold: false,
+        image: "/static/KnustKop3-1024x728.png",
+        full: "/static/KnustKop3-scaled.png"
+      },
+      {
+        title: "Spacing Out (2024)",
+        meta: ["Oil on canvas | 100 x 70 cm"],
+        sold: false,
+        image: "/static/Spacing-out-scaled.jpg"
+      },
+      {
+        title: "The Art Of Being Overwhelmed, Constantly (2025)",
+        meta: [
+          "3D print, video, robotics etc. | 180 x 100 cm",
+          "In collaboration with Aske Egelund Bechmann (vocal, guitar, OP-1 and drums) and David Guldbrandsen (tech support)"
+        ],
+        sold: false,
+        subgalleryCols: 3,
+        subgallery: [
+          { thumb: "/static/Screenshot-2025-10-18-233504-300x167.png", full: "/static/Screenshot-2025-10-18-233504-scaled.png" },
+          { thumb: "/static/Skulptur7-300x236.png", full: "/static/Skulptur7-scaled.png" },
+          { thumb: "/static/Skulptur5-292x300.png", full: "/static/Skulptur5-scaled.png" }
+        ],
+        youtubeId: "lIa0N-al8C0",
+        poster: "/static/Screenshot-2025-10-18-233504-scaled.png"
+      },
+      {
+        title: "Apocalypse (2024)",
+        meta: ["Oil on canvas | 100 x 120 cm"],
+        sold: false,
+        width: "76%",
+        image: "/static/Apocalypse-scaled.jpg"
+      },
+      {
+        title: "Mango Tree (2024)",
+        meta: ["Oil on canvas | 60 x 80 cm"],
+        sold: true,
+        width: "73%",
+        image: "/static/20241029_143711-scaled.jpg"
+      },
+      {
+        title: "Self portrait II (2024)",
+        meta: ["Oil and spray paint on canvas | 40 x 60 cm"],
+        sold: true,
+        width: "74%",
+        image: "/static/20240222_183219-scaled.jpg"
+      },
+      {
+        title: "Fagot (2024)",
+        meta: ["Oil on canvas | 40 x 40 cm"],
+        sold: true,
+        image: "/static/20240610_002306-1-scaled.jpg"
+      },
+      {
+        title: "Drømmesyner (2024)",
+        meta: ["Oil, acrylic paint and oil pastels | 50 x 80 cm"],
+        sold: true,
+        width: "74%",
+        image: "/static/20240506_155530-scaled.jpg"
+      },
+      {
+        title: "Untitled (2024)",
+        meta: ["Oil on canvas | 100 x 50 cm"],
+        sold: true,
+        width: "74%",
+        image: "/static/20240412_210835-scaled.jpg"
+      },
+      {
+        title: "Kvinden Og Aben (2024)",
+        meta: ["Oil and spray paint on canvas | 40 x 40 cm"],
+        sold: true,
+        image: "/static/KvindenOgAben-1021x1024.png",
+        full: "/static/KvindenOgAben-scaled.png"
+      },
+      {
+        title: "Untitled (2024)",
+        meta: ["Oil on canvas | 40 x 40 cm"],
+        sold: false,
+        image: "/static/Screenshot_20240402_212942_Gallery-1.jpg"
+      },
+      {
+        title: "Untitled (2024)",
+        meta: ["Oil on canvas | 100 x 100 cm"],
+        sold: false,
+        image: "/static/20230827_183318-1-scaled.jpg"
+      },
+      {
+        title: "Toner i metal (2023)",
+        meta: ["Steel pipe, steel wire, 3D printing, mannequin, flamingo, epoxy, etc. | 190 x 160 x 110 cm"],
+        sold: false,
+        subgalleryCols: 2,
+        subgallery: [
+          { thumb: "/static/Toner-i-metal-2-300x176.jpg", full: "/static/Toner-i-metal-2.jpg" },
+          { thumb: "/static/Toner-i-metal-1-300x188.jpg", full: "/static/Toner-i-metal-1.jpg" }
+        ],
+        youtubeId: "vIQqVKrRvnM",
+        poster: "/static/Toner-i-metal-2.jpg"
+      },
+      {
+        title: "Stresset (2023)",
+        meta: ["Oil on canvas | 40 x 50 cm"],
+        sold: false,
+        width: "85%",
+        image: "/static/Stresset-1.jpg"
+      },
+      {
+        title: "Rugemor (2023)",
+        meta: ["Oil, soil, coffee and plastic cups on canvas | 90 x 110 cm"],
+        sold: false,
+        image: "/static/IMG_20231212_201055_170.jpg"
+      },
+      {
+        title: "Lorte dag (2023)",
+        meta: ["Oil on canvas | 45 x 38 cm"],
+        sold: false,
+        width: "90%",
+        image: "/static/Lortedag-1.jpg"
+      },
+      {
+        title: "Du som er i guds rige (2023)",
+        meta: ["Oil, acrylic paint and flamingo on canvas | 98 x 77 cm"],
+        sold: false,
+        width: "86%",
+        image: "/static/Du-som-er-i-guds-rige-1.jpg"
+      },
+      {
+        title: "Untitled (2023)",
+        meta: ["Latex, body casts in plaster, wood, mannequin, fabric, lamps, etc. | 260 x 170 x 170 cm"],
+        sold: true,
+        width: "63%",
+        image: "/static/Uden-titel.jpg"
+      },
+      {
+        title: "Untitled (2023)",
+        meta: ["Oil on canvas | 40 x 60 cm"],
+        sold: false,
+        width: "68%",
+        image: "/static/Untitled-scaled.jpg"
+      },
+      {
+        title: "Glasfrø (2023)",
+        meta: ["Oil on canvas | 40 x 40 cm"],
+        sold: true,
+        image: "/static/Screenshot_20251019_000216_Instagram.jpg"
+      },
+      {
+        title: "Untitled (2023)",
+        meta: ["Oil on canvas | 40 x 40 cm"],
+        sold: true,
+        width: "89%",
+        image: "/static/Screenshot_20251019_000213_Instagram.jpg"
+      },
+      {
+        title: "Trommelektion (2023)",
+        meta: ["Oil on canvas | 60 x 40 cm and 60 x 70 cm"],
+        sold: true,
+        width: "88%",
+        image: "/static/IMG_20231212_194754_533.webp"
+      },
+      {
+        title: "Untitled (2023)",
+        meta: ["Oil on canvas | 60 x 70 cm"],
+        sold: true,
+        image: "/static/Screenshot_20251019_000233_Instagram.jpg"
+      },
+      {
+        title: "Jeg var her også (2023)",
+        meta: ["Oil and spray paint on canvas | 80 x 100 cm"],
+        sold: true,
+        image: "/static/IMG_20231212_201501_924.webp"
+      },
+      {
+        title: "Fallen Angel (2023)",
+        meta: ["Oil on canvas | Dimension"],
+        sold: true,
+        image: "/static/Screenshot_20251019_001441_Instagram.jpg"
+      },
+      {
+        title: "Cupcake (2023)",
+        meta: ["Oil on canvas | 30 x 50 cm"],
+        sold: true,
+        width: "80%",
+        image: "/static/Screenshot_20251019_000229_Instagram.jpg"
+      },
+      {
+        title: "Untitled (2022)",
+        meta: ["Oil on canvas | 40 x 50 cm"],
+        sold: true,
+        width: "84%",
+        image: "/static/Screenshot_20251019_000222_Instagram.jpg"
+      },
+      {
+        title: "Det rum der er fyldt op med ingenting (2023)",
+        meta: ["Oil on canvas | 80 x 100 cm"],
+        sold: true,
+        image: "/static/IMG_20231212_201300_598-1024x887.jpg",
+        full: "/static/IMG_20231212_201300_598.jpg"
+      },
+      {
+        title: "Untitled (2023)",
+        meta: ["Oil on canvas | 100 x 200 cm"],
+        sold: false,
+        width: "96%",
+        image: "/static/IMG_20231213_115110_832.webp"
+      },
+      {
+        title: "Untitled (2023)",
+        meta: ["Oil on canvas | 60 x 80 cm"],
+        sold: true,
+        image: "/static/CN5A1761-scaled.png"
+      },
+      {
+        title: "Untitled (2023)",
+        meta: ["Oil on canvas | 50 x 70 cm"],
+        sold: true,
+        image: "/static/CN5A1756-scaled.png"
+      },
+      {
+        title: "Døden og en pingvin (2022)",
+        meta: ["Oil on canvas | 40 x 40 cm"],
+        sold: false,
+        image: "/static/Screenshot_20251019_000129_Instagram.jpg"
+      },
+      {
+        title: "Fugl (2022)",
+        meta: ["Charcoal and acrylic paint on paper | 43 x 31 cm"],
+        sold: true,
+        width: "82%",
+        image: "/static/Fugl.jpg"
+      },
+      {
+        title: "Untitled (2022)",
+        meta: ["Oil on canvas | 40 x 40 cm"],
+        sold: true,
+        image: "/static/Screenshot_20251018_235926_Instagram.jpg"
+      },
+      {
+        title: "Self portrait I (2022)",
+        meta: ["Oil on canvas | 70 x 80 cm"],
+        sold: true,
+        image: "/static/Screenshot_20251019_000300_Instagram.jpg"
+      },
+      {
+        title: "Søvnløs (2022)",
+        meta: ["Oil on canvas | 50 x 50 cm"],
+        sold: true,
+        image: "/static/Screenshot_20251019_000303_Instagram.jpg"
+      },
+      {
+        title: "Untitled (2022)",
+        meta: ["Oil on canvas | 40 x 40 cm"],
+        sold: false,
+        image: "/static/Screenshot_20251019_000210_Instagram.jpg"
+      },
+      {
+        title: "Untitled (2022)",
+        meta: ["Oil on canvas | 50 x 50 cm"],
+        sold: true,
+        image: "/static/Screenshot_20251019_000257_Instagram.jpg"
+      },
+      {
+        title: "Untitled (2021)",
+        meta: ["Oil on paper | 30 x 30 cm"],
+        sold: true,
+        image: "/static/CN5A1807-scaled.png"
+      }
+    ];
+
+    // 4. Other Art Works Masonry Gallery
+    const otherArtWorks = [
+      { thumb: "/static/Screenshot_20251019_000057_Instagram.jpg", full: "/static/Screenshot_20251019_000057_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251019_000040_Instagram.jpg", full: "/static/Screenshot_20251019_000040_Instagram.jpg" },
+      { thumb: "/static/CN5A1786-scaled.png", full: "/static/CN5A1786-scaled.png" },
+      { thumb: "/static/Screenshot_20251215_003714_Instagram-1024x841.jpg", full: "/static/Screenshot_20251215_003714_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251019_000345_Instagram.jpg", full: "/static/Screenshot_20251019_000345_Instagram.jpg" },
+      { thumb: "/static/Untitled1.11-790x1024.jpg", full: "/static/Untitled1.11-scaled.jpg" },
+      { thumb: "/static/Screenshot_20251019_000149_Instagram.jpg", full: "/static/Screenshot_20251019_000149_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251019_000049_Instagram.jpg", full: "/static/Screenshot_20251019_000049_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251019_000249_Instagram.jpg", full: "/static/Screenshot_20251019_000249_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251019_000408_Instagram.jpg", full: "/static/Screenshot_20251019_000408_Instagram.jpg" },
+      { thumb: "/static/CN5A1799-scaled.png", full: "/static/CN5A1799-scaled.png" },
+      { thumb: "/static/Untitled1.5-1024x744.jpg", full: "/static/Untitled1.5-scaled.jpg" },
+      { thumb: "/static/Untitled1.12-1024x774.jpg", full: "/static/Untitled1.12-scaled.jpg" },
+      { thumb: "/static/Screenshot_20251019_000423_Instagram.jpg", full: "/static/Screenshot_20251019_000423_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251018_235739_Instagram.jpg", full: "/static/Screenshot_20251018_235739_Instagram.jpg" },
+      { thumb: "/static/Untitled1.7-504x1024.jpg", full: "/static/Untitled1.7-scaled.jpg" },
+      { thumb: "/static/CN5A1783-scaled.png", full: "/static/CN5A1783-scaled.png" },
+      { thumb: "/static/Screenshot_20251019_000206_Instagram.jpg", full: "/static/Screenshot_20251019_000206_Instagram.jpg" },
+      { thumb: "/static/Untitled1.3-816x1024.jpg", full: "/static/Untitled1.3-scaled.jpg" },
+      { thumb: "/static/CN5A1772-scaled.png", full: "/static/CN5A1772-scaled.png" },
+      { thumb: "/static/1000053641.jpg", full: "/static/1000053641.jpg" },
+      { thumb: "/static/Screenshot_20251019_000036_Instagram.jpg", full: "/static/Screenshot_20251019_000036_Instagram.jpg" },
+      { thumb: "/static/Untitled1.6-750x1024.jpg", full: "/static/Untitled1.6-scaled.jpg" },
+      { thumb: "/static/Screenshot_20251019_000333_Instagram.jpg", full: "/static/Screenshot_20251019_000333_Instagram.jpg" },
+      { thumb: "/static/CN5A1791-scaled.png", full: "/static/CN5A1791-scaled.png" },
+      { thumb: "/static/CN5A1792-scaled.png", full: "/static/CN5A1792-scaled.png" },
+      { thumb: "/static/Untitled1.16-751x1024.jpg", full: "/static/Untitled1.16-scaled.jpg" },
+      { thumb: "/static/CN5A1788-scaled.png", full: "/static/CN5A1788-scaled.png" },
+      { thumb: "/static/Screenshot_20251019_000436_Instagram.jpg", full: "/static/Screenshot_20251019_000436_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251019_000118_Instagram.jpg", full: "/static/Screenshot_20251019_000118_Instagram.jpg" },
+      { thumb: "/static/CN5A1752-scaled.png", full: "/static/CN5A1752-scaled.png" },
+      { thumb: "/static/Untitled1.4-1024x337.jpg", full: "/static/Untitled1.4-scaled.jpg" },
+      { thumb: "/static/CN5A1785-scaled.png", full: "/static/CN5A1785-scaled.png" },
+      { thumb: "/static/CN5A1798-scaled.png", full: "/static/CN5A1798-scaled.png" },
+      { thumb: "/static/Screenshot_20250312_191940_Instagram.jpg", full: "/static/Screenshot_20250312_191940_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251019_000447_Instagram.jpg", full: "/static/Screenshot_20251019_000447_Instagram.jpg" },
+      { thumb: "/static/Untitled1.10-1024x1008.jpg", full: "/static/Untitled1.10-scaled.jpg" },
+      { thumb: "/static/Untitled1.14-1024x1024.jpg", full: "/static/Untitled1.14-scaled.jpg" },
+      { thumb: "/static/Untitled1.8-719x1024.jpg", full: "/static/Untitled1.8-scaled.jpg" },
+      { thumb: "/static/CN5A1779-1-scaled.png", full: "/static/CN5A1779-1-scaled.png" },
+      { thumb: "/static/Untitled1.15-1024x715.jpg", full: "/static/Untitled1.15-scaled.jpg" },
+      { thumb: "/static/Screenshot_20251019_000121_Instagram.jpg", full: "/static/Screenshot_20251019_000121_Instagram.jpg" },
+      { thumb: "/static/Screenshot_20251019_000502_Instagram.jpg", full: "/static/Screenshot_20251019_000502_Instagram.jpg" }
+    ];
+
+    // ================= RENDER GALLERIES =================
+    let currentLightboxList = [];
+    let currentLightboxIndex = 0;
+
+    function openLightboxList(list, index) {
+      currentLightboxList = list;
+      currentLightboxIndex = index;
+      document.getElementById('lightboxImg').src = currentLightboxList[currentLightboxIndex];
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function stepLightbox(dir) {
+      if (!currentLightboxList.length) return;
+      currentLightboxIndex = (currentLightboxIndex + dir + currentLightboxList.length) % currentLightboxList.length;
+      document.getElementById('lightboxImg').src = currentLightboxList[currentLightboxIndex];
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('lightboxImg').src = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeContactModal();
+      } else if (e.key === 'ArrowRight') {
+        stepLightbox(1);
+      } else if (e.key === 'ArrowLeft') {
+        stepLightbox(-1);
+      }
+    });
+
+    // Render Bio Strip
+    const bioStripEl = document.getElementById('bioStripGallery');
+    const bioFullUrls = bioStripImages.map(i => i.full);
+    bioStripImages.forEach((img, idx) => {
+      const div = document.createElement('div');
+      div.className = 'bio-strip-item';
+      div.innerHTML = `<img src="${img.thumb}" alt="Exhibition photo ${idx + 1}" loading="lazy">`;
+      div.onclick = () => openLightboxList(bioFullUrls, idx);
+      bioStripEl.appendChild(div);
+    });
+
+    // Render Selected Works Carousel
+    const selectedTrack = document.getElementById('selectedCarouselTrack');
+    selectedWorksImages.forEach((url, idx) => {
+      const slide = document.createElement('div');
+      slide.className = 'selected-slide';
+      slide.innerHTML = `<img src="${url}" alt="Selected work ${idx + 1}" loading="lazy">`;
+      slide.onclick = () => openLightboxList(selectedWorksImages, idx);
+      selectedTrack.appendChild(slide);
+    });
+
+    function scrollSelected(dir) {
+      const slideWidth = selectedTrack.querySelector('.selected-slide')?.offsetWidth || 260;
+      selectedTrack.scrollBy({ left: dir * (slideWidth + 10), behavior: 'smooth' });
+    }
+
+    // Render Main Portfolio Grid
+    const gridEl = document.getElementById('artworkGrid');
+    const sliderStates = {};
+
+    portfolioArtworks.forEach((art, cardIdx) => {
+      const card = document.createElement('div');
+      card.className = 'artwork-card';
+
+      let mediaHtml = `<div class="artwork-media">`;
+
+      if (art.subgallery) {
+        const subFullUrls = art.subgallery.map(s => s.full);
+        mediaHtml += `<div class="card-subgallery cols-${art.subgalleryCols || 3}">`;
+        art.subgallery.forEach((sub, sIdx) => {
+          mediaHtml += `
+            <div class="card-subgallery-item" onclick='openLightboxList(${JSON.stringify(subFullUrls)}, ${sIdx})'>
+              <img src="${sub.thumb}" alt="${art.title} detail ${sIdx + 1}" loading="lazy">
+            </div>`;
+        });
+        mediaHtml += `</div>`;
+      }
+
+      if (art.carousel) {
+        sliderStates[cardIdx] = 0;
+        const cFullUrls = art.carousel.map(c => c.full);
+        mediaHtml += `
+          <div class="card-slider" id="cardSlider_${cardIdx}">
+            <div class="card-slider-track" id="cardSliderTrack_${cardIdx}">
+              ${art.carousel.map((c, cIdx) => `
+                <div class="card-slider-slide" onclick='openLightboxList(${JSON.stringify(cFullUrls)}, ${cIdx})'>
+                  <img src="${c.thumb}" alt="${art.title} slide ${cIdx + 1}" loading="lazy">
+                </div>
+              `).join('')}
+            </div>
+            <button class="carousel-nav-btn prev" onclick="stepCardSlider(${cardIdx}, -1, ${art.carousel.length})" aria-label="Previous">
+              <svg viewBox="0 0 1000 1000"><path d="M646 125C629 125 613 133 604 142L308 442C296 454 292 471 292 487 292 504 296 521 308 533L604 854C617 867 629 875 646 875 663 875 679 871 692 858 704 846 713 829 713 812 713 796 708 779 692 767L438 487 692 225C700 217 708 204 708 187 708 171 704 154 692 142 675 129 663 125 646 125Z"/></svg>
+            </button>
+            <button class="carousel-nav-btn next" onclick="stepCardSlider(${cardIdx}, 1, ${art.carousel.length})" aria-label="Next">
+              <svg viewBox="0 0 1000 1000"><path d="M696 533C708 521 713 504 713 487 713 471 708 454 696 446L400 146C388 133 375 125 354 125 338 125 325 129 313 142 300 154 292 171 292 187 292 204 296 221 308 233L563 492 304 771C292 783 288 800 288 817 288 833 296 850 308 863 321 871 338 875 354 875 371 875 388 867 400 854L696 533Z"/></svg>
+            </button>
+          </div>`;
+      } else if (art.youtubeId) {
+        const posterImg = art.poster || `https://i.ytimg.com/vi/${art.youtubeId}/hqdefault.jpg`;
+        mediaHtml += `
+          <div class="video-embed" id="vid_${cardIdx}" style="position:relative; cursor:pointer;" onclick="loadYouTube(${cardIdx}, '${art.youtubeId}')">
+            <img src="${posterImg}" alt="${art.title}" style="width:100%; height:100%; object-fit:cover;">
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.35);">
+              <div style="width:64px; height:44px; background:#FF0000; border-radius:10px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.5);">
+                <svg viewBox="0 0 24 24" style="width:26px; height:26px; fill:#fff; margin-left:3px;"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>`;
+      } else if (art.image) {
+        const fullUrl = art.full || art.image;
+        const widthStyle = art.width ? `style="width:${art.width}"` : '';
+        mediaHtml += `
+          <div class="artwork-img-link" onclick='openLightboxList([${JSON.stringify(fullUrl)}], 0)'>
+            <img src="${art.image}" alt="${art.title}" ${widthStyle} loading="lazy">
+          </div>`;
+      }
+
+      mediaHtml += `</div>`;
+
+      const metaHtml = art.meta.map(line => `<p class="artwork-meta">${line}</p>`).join('');
+      const soldHtml = art.sold ? `<p class="artwork-sold">Sold / unavailable</p>` : '';
+
+      card.innerHTML = `
+        ${mediaHtml}
+        <h2 class="artwork-title">${art.title}</h2>
+        ${metaHtml}
+        ${soldHtml}
+      `;
+      gridEl.appendChild(card);
+    });
+
+    function loadYouTube(cardIdx, videoId) {
+      if (window.location.protocol === 'file:') {
+        window.open(`https://www.youtube.com/watch?v=${videoId}`, '_blank');
+        return;
+      }
+      const container = document.getElementById(`vid_${cardIdx}`);
+      if (container) {
+        container.onclick = null;
+        container.innerHTML = `
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0" 
+            title="YouTube video player" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen 
+            style="width:100%; height:100%; border:0;">
+          </iframe>`;
+      }
+    }
+
+    function stepCardSlider(cardIdx, dir, total) {
+      sliderStates[cardIdx] = (sliderStates[cardIdx] + dir + total) % total;
+      const track = document.getElementById(`cardSliderTrack_${cardIdx}`);
+      if (track) {
+        track.style.transform = `translateX(-${sliderStates[cardIdx] * 100}%)`;
+      }
+    }
+
+    // Render Other Art Works Masonry
+    const otherGalleryEl = document.getElementById('otherWorksGallery');
+    const otherFullUrls = otherArtWorks.map(o => o.full);
+    otherArtWorks.forEach((item, idx) => {
+      const div = document.createElement('div');
+      div.className = 'masonry-item';
+      div.innerHTML = `<img src="${item.thumb}" alt="Artwork ${idx + 1}" loading="lazy">`;
+      div.onclick = () => openLightboxList(otherFullUrls, idx);
+      otherGalleryEl.appendChild(div);
+    });
+
+    // ================= CONTACT MODAL LOGIC =================
+    function openContactModal() {
+      setFormStep(1);
+      document.getElementById('contactModal').classList.add('active');
+    }
+
+    function closeContactModal() {
+      document.getElementById('contactModal').classList.remove('active');
+    }
+
+    function setFormStep(step) {
+      if (step === 3) {
+        const name = document.getElementById('contactName').value.trim();
+        const email = document.getElementById('contactEmail').value.trim();
+        if (!name || !email) {
+          alert('Please enter your name and email.');
+          return;
+        }
+      }
+      [1, 2, 3].forEach(s => {
+        document.getElementById(`formStep${s}`).classList.toggle('active', s === step);
+        document.getElementById(`badgeStep${s}`).classList.toggle('active', s <= step);
+      });
+    }
+
+    function submitContactForm(e) {
+      e.preventDefault();
+      const topics = Array.from(document.querySelectorAll('input[name="topic"]:checked')).map(cb => cb.value);
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+
+      const subject = encodeURIComponent(`Website Inquiry: ${topics.length ? topics.join(', ') : 'General'}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nTopics: ${topics.join(', ') || 'None selected'}\n\nMessage:\n${message}`
+      );
+      window.location.href = `mailto:Elizabeth.guldbrandsen@gmail.com?subject=${subject}&body=${body}`;
+      closeContactModal();
+    }
+  </script>
+</body>
+</html>
