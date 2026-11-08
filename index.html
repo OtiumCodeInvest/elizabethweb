@@ -1719,44 +1719,88 @@
       otherGalleryEl.appendChild(div);
     });
 
-    // ================= CONTACT MODAL LOGIC =================
+// ================= CONTACT MODAL LOGIC =================
     function openContactModal() {
-      setFormStep(1);
-      document.getElementById('contactModal').classList.add('active');
+        const statusMessage = document.getElementById('form-status');
+        if (statusMessage) statusMessage.innerHTML = '';
+        setFormStep(1);
+        document.getElementById('contactModal').classList.add('active');
     }
 
     function closeContactModal() {
-      document.getElementById('contactModal').classList.remove('active');
+        document.getElementById('contactModal').classList.remove('active');
     }
 
     function setFormStep(step) {
-      if (step === 3) {
-        const name = document.getElementById('contactName').value.trim();
-        const email = document.getElementById('contactEmail').value.trim();
-        if (!name || !email) {
-          alert('Please enter your name and email.');
-          return;
+        if (step === 3) {
+            const nameInput = document.getElementById('contactName');
+            const emailInput = document.getElementById('contactEmail');
+            if (!nameInput.checkValidity()) {
+                nameInput.reportValidity();
+                return;
+            }
+            if (!emailInput.checkValidity()) {
+                emailInput.reportValidity();
+                return;
+            }
         }
-      }
-      [1, 2, 3].forEach(s => {
-        document.getElementById(`formStep${s}`).classList.toggle('active', s === step);
-        document.getElementById(`badgeStep${s}`).classList.toggle('active', s <= step);
-      });
+        [1, 2, 3].forEach(s => {
+            document.getElementById(`formStep${s}`).classList.toggle('active', s === step);
+            document.getElementById(`badgeStep${s}`).classList.toggle('active', s <= step);
+        });
     }
 
-    function submitContactForm(e) {
-      e.preventDefault();
-      const topics = Array.from(document.querySelectorAll('input[name="topic"]:checked')).map(cb => cb.value);
-      const name = document.getElementById('contactName').value.trim();
-      const email = document.getElementById('contactEmail').value.trim();
-      const message = document.getElementById('contactMessage').value.trim();
+    function submitContactForm(event) {
+        event.preventDefault();
+        const form = document.getElementById('contactForm');
+        const statusMessage = document.getElementById('form-status');
+        const submitBtn = document.getElementById('contactSubmitBtn');
 
-      const subject = encodeURIComponent(`Website Inquiry: ${topics.length ? topics.join(', ') : 'General'}`);
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nTopics: ${topics.join(', ') || 'None selected'}\n\nMessage:\n${message}`
-      );
-      window.location.href = `mailto:Elizabeth.guldbrandsen@gmail.com?subject=${subject}&body=${body}`;
-      closeContactModal();
+        // Combine checked topics into a clean string for the Formspree email
+        const selectedTopics = Array.from(document.querySelectorAll('input[name="topic"]:checked'))
+            .map(cb => cb.value)
+            .join(', ');
+
+        const data = new FormData(form);
+        data.delete('topic');
+        data.append('topics', selectedTopics || 'None selected');
+        data.append('_subject', `elizabethguldbrandsen.com Inquiry: ${selectedTopics || 'General'}`);
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        statusMessage.innerHTML = '';
+
+        fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send';
+            if (response.ok) {
+                statusMessage.innerHTML = "Thank you for your message! I will get back to you soon.";
+                statusMessage.style.color = "#2e7d32";
+                form.reset();
+                setTimeout(() => {
+                    closeContactModal();
+                    statusMessage.innerHTML = '';
+                }, 2000);
+            } else {
+                response.json().then(resData => {
+                    if (Object.hasOwn(resData, 'errors')) {
+                        statusMessage.innerHTML = resData["errors"].map(err => err["message"]).join(", ");
+                    } else {
+                        statusMessage.innerHTML = "Oops! There was a problem sending your message.";
+                    }
+                    statusMessage.style.color = "#B40000";
+                });
+            }
+        }).catch(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send';
+            statusMessage.innerHTML = "Oops! There was a problem sending your message.";
+            statusMessage.style.color = "#B40000";
+        });
     }
   </script>
 </body>
