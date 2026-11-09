@@ -1056,7 +1056,8 @@
         <div class="step-badge" id="badgeStep3"><span class="circle">3</span> Message</div>
       </div>
 
-      <form id="contactForm" action="https://formspree.io/f/mvkknnja" method="POST" onsubmit="submitContactForm(event)">
+      <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxJqoM5BMEoyU5oJuG0dLPWYaRhozQJbpRjwkpYzVmii24rsL3GYhaLY5pYmP_ir1nJ7g/exec" method="POST" onsubmit="submitContactForm(event)">
+        <input type="text" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
         <!-- Step 1 -->
         <div class="form-step active" id="formStep1">
           <p class="form-prompt">What brings you here?</p>
@@ -1756,24 +1757,28 @@
         const statusMessage = document.getElementById('form-status');
         const submitBtn = document.getElementById('contactSubmitBtn');
 
-        // Combine checked topics into a clean string for the Formspree email
+        // Combine checked topics into a clean string and include in message body
         const selectedTopics = Array.from(document.querySelectorAll('input[name="topic"]:checked'))
             .map(cb => cb.value)
-            .join(', ');
+            .join(', ') || 'None selected';
 
-        const data = new FormData(form);
-        data.delete('topic');
-        data.append('topics', selectedTopics || 'None selected');
-        data.append('_subject', `elizabethguldbrandsen.com Inquiry: ${selectedTopics || 'General'}`);
+        const rawFormData = new FormData(form);
+        const rawMessage = rawFormData.get('message') || '';
+
+        const data = new URLSearchParams();
+        data.append('name', rawFormData.get('name') || '');
+        data.append('email', rawFormData.get('email') || '');
+        data.append('botcheck', rawFormData.get('botcheck') || '');
+        data.append('topics', selectedTopics);
+        data.append('message', `Topics: ${selectedTopics}\n\n${rawMessage}`);
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
         statusMessage.innerHTML = '';
 
         fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: { 'Accept': 'application/json' }
+            method: 'POST',
+            body: data
         }).then(response => {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Send';
@@ -1786,14 +1791,8 @@
                     statusMessage.innerHTML = '';
                 }, 2000);
             } else {
-                response.json().then(resData => {
-                    if (Object.hasOwn(resData, 'errors')) {
-                        statusMessage.innerHTML = resData["errors"].map(err => err["message"]).join(", ");
-                    } else {
-                        statusMessage.innerHTML = "Oops! There was a problem sending your message.";
-                    }
-                    statusMessage.style.color = "#B40000";
-                });
+                statusMessage.innerHTML = "Oops! There was a problem sending your message.";
+                statusMessage.style.color = "#B40000";
             }
         }).catch(() => {
             submitBtn.disabled = false;
